@@ -1,4 +1,4 @@
-package jfilechecksumverifier;
+package jchecksumcalculator;
 
 import java.io.BufferedInputStream;
 import java.io.File;
