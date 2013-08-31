@@ -255,9 +255,7 @@ public class JFCV extends javax.swing.JFrame {
     private void calculate() {
         String sum = "";
         try {
-            sum = DatatypeConverter.printHexBinary(createChecksum());
-            
-            
+            sum = DatatypeConverter.printHexBinary(checksumOfFile());
             txtResult.setText(sum);
         } catch (NoSuchAlgorithmException ex) {
             lblStatus.setText("Choose an algorythm");
@@ -269,7 +267,7 @@ public class JFCV extends javax.swing.JFrame {
         
     }
 
-    private byte[] createChecksum() throws NoSuchAlgorithmException, FileNotFoundException, IOException{
+    private byte[] checksumOfFile() throws NoSuchAlgorithmException, FileNotFoundException, IOException{
         BufferedInputStream in = new BufferedInputStream(new FileInputStream(file));
         byte[] buf = new byte[1024];
         MessageDigest hasher = MessageDigest.getInstance((String) cbbChecksumtype.getSelectedItem());
